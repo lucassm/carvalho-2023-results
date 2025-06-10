@@ -548,56 +548,55 @@ The authors would like to thank Jaimie Swartz for her insightful comments.
 
 ## REFERENCES
 
-[1] B. Palmintier, "On the path to sunshot: Emerging issues and challenges in integrating solar with the distribution system," Nat. Renewable Energy Lab. (NREL), Golden, CO, Tech. Rep. NREL/TP-5D00-65331, May 2016
-[2] "Renewable integration study stage 1 appendix A: High penetrations of distributed solar PV," Australian Energy Market Operator (AEMO), Tech. Rep., Apr. 2020.
-[3] K. Petrou et al., "Limitations of residential storage in PV-rich distribution networks: An Australian case study," in Proc. IEEE Power Energy Soc. Gen. Meeting, 2018, pp. 1-5.
-[4] A. T. Procopiou, M. Z. Liu, W. Nacmanson, and L. Ochoa, "Advanced planning of PV-rich distribution networks - deliverable 4 Non-traditional solutions," The Univ. Melbourne, Tech. Rep., Aug. 2020
-[5] J. W. Smith, W. Sunderman, R. Dugan, and B. Seal, "Smart inverter volt/var control functions for high penetration of PV on distribution systems," in Proc. IEEE/PES Power Syst. Conf. Expo., 2011, pp. 1-6.
-[6] A. von Meier, E. L. Ratnam, K. Brady, K. Moffat, and J. Swartz, "Phasor based control for scalable integration of variable energy resources," Energies, vol. 13, no. 1, pp. 1-14, 2020
-[7] I. Ranaweera, O.-M. Midtgåard, and M. Korpåas, "Distributed contro scheme for residential battery energy storage units coupled with PV systems," Renewable Energy, vol. 113, pp. 1099-1110, 2017
-[8] S. Hashemi and J. Østergaard, "Efficient control of energy storage for increasing the PV hosting capacity of LV grids," IEEE Trans. Smart Grid, vol. 9, no. 3, pp. 2295-2303, May 2018
-[9] M. U. Hashmi, D. Deka, A. Bušić, L. Pereira, and S. Backhaus, "Arbitrage with power factor correction using energy storage," IEEE Trans. Power Syst., vol. 35, no. 4, pp. 2693-2703, Jul. 2020
-[10] J. von Appen, T. Stetz, M. Braun, and A. Schmiegel, "Local voltage control strategies for PV storage systems in distribution grids," IEEE Trans. Smart Grid, vol. 5, no. 2, pp. 1002-1009, Mar. 2014.
-[11] E. L. Ratnam, S. R. Weller, and C. M. Kellett, "Central versus localized optimization-based approaches to power management in distribution networks with residential battery storage," Int. J. Electr. Power Energy Syst., vol. 80, pp. 396-406, 2016.
-[12] W. C. de Carvalho, E. L. Ratnam, L. Blackhall, A. von Meier, and A. Murray, "Over-voltage disconnection of DER inverters: Assessing customer savings," IFAC-PapersOnLine 21st IFAC World Congr., vol. 53, no. 2, pp. 13230-13235, 2020
-[13] E. Yao, P. Samadi, V. W. S. Wong, and R. Schober, "Residential demand side management under high penetration of rooftop photovoltaic units," IEEE Trans. Smart Grid, vol. 7, no. 3, pp. 1597-1608, May 2016.
-[14] A. T. Procopiou, K. Petrou, L. F. Ochoa, T. Langstaff, and J. Theunissen, "Adaptive decentralized control of residential storage in PV-rich MVLV networks," IEEE Trans. Power Syst., vol. 34, no. 3, pp. 2378-2389 May 2019
-[15] Y. Wang, K. T. Tan, X. Y. Peng, and P. L. So, "Coordinated control of distributed energy-storage systems for voltage regulation in distribution networks," IEEE Trans. Power Del., vol. 31, no. 3, pp. 1132-1141, Jun. 2016.
-[16] M. Zeraati, M. E. Hamedani Golshan, and J. M. Guerrero, "Distributed control of battery energy storage systems for voltage regulation in distribution networks with high PV penetration," IEEE Trans. Smart Grid, vol. 9 no. 4, pp. 3582-3593, Jul. 2018
-[17] G. Cavraro and R. Carli, "Local and distributed voltage control algorithms in distribution networks," IEEE Trans. Power Syst., vol. 33, no. 2, pp. 1420-1430, Mar. 2018.
-[18] D. K. Molzahn et al., "A survey of distributed optimization and control algorithms for electric power systems," IEEE Trans. Smart Grid, vol. 8, no. 6, pp. 2941-2962, Nov. 2017.
-[19] J. Joo, M. Chava, M. Sankur, D. Arnold, and E. Stewart, "Model predictive control of flexible demand for voltage support in unbalanced distribution systems," in Proc. IEEE Power Energy Soc. Gen. Meeting, Chicago, IL, USA, 2017, pp. 1-5
-[20] K. E. Antoniadou-Plytaria, I. N. Kouveliotis-Lysikatos, P. S. Georgilakis, and N. D. Hatziargyriou, "Distributed and decentralized voltage control of smart distribution networks: Models, methods, and future research," IEEE Trans. Smart Grid, vol. 8, no. 6, pp. 2999-3008, Nov. 2017
-21] M. D. Sankur, R. Dobbe, E. Stewart, D. S. Callaway, and D. B. Arnold, "A linearized power flow model for optimization in unbalanced distribution systems," pp. 1-6, Jun. 2016, arXiv:1606.04492.
-[22] M. D. Sankur, R. Dobbe, A. von Meier, E. M. Stewart, and D. B. Arnold, "Optimal voltage phasor regulation for switching actions in unbalanced distribution systems," pp. 1-11, Jun. 2019, arXiv:1804.02080.
-[23] D. B. Arnold, M. Sankur, R. Dobbe, K. Brady, D. S. Callaway, and A. von Meier, "Optimal dispatch of reactive power for voltage regulation and balancing in unbalanced distribution systems," in Proc. IEEE Power Energy Soc. Gen. Meeting, Boston, MA, USA, 2016, pp. 1-5.
-[24] M. Shaw, B. Sturmberg, L. Guo, X. Gao, E. Ratnam, and L. Blackhall, "The NextGen energy storage trial in the ACT, Australia," in Proc. 10th ACM Inter. Conf. Future Energy Syst., Phoenix, AZ, USA, 2019 pp. $439-442$.
-[25] M. Baran and F. F. Wu, "Optimal sizing of capacitors placed on a radial distribution system," IEEE Trans. Power Del., vol. 4, no. 1, pp. 735-743, Jan. 1989.
-[26] W. Lin and E. Bitar, "Decentralized stochastic control of distributed energy resources," IEEE Trans. Power Syst., vol. 33, no. 1, pp. 888-900, Jan 2018.
-[27] E. L. Ratnam, S. R. Weller, and C. M. Kellett, "Scheduling residential battery storage with solar PV: Assessing the benefits of net metering," Appl. Energy, vol. 155, pp. 881-891, 2015.
-[28] M.E. Baran and F.F. Wu, "Network reconfiguration in distribution systems for loss reduction and load balancing," IEEE Trans. Power Del., vol. 4 no. 2, pp. 1401-1407, Apr. 1989.
-[29] IEEE Standard for Interconnection and Interoperability of Distributed Energy Resources with Associated Electric Power Systems Interfaces, IEEE Standard 1547-2018 (Rev. of IEEE Standard 1547-2003), pp. 1-138, Apr. 2018, doi: 10.1109/IEEESTD.2018.8332112.
-[30] AusNet Services, "Model standing offer for basic connection services: Basic micro Embedded Generation (EG) - inverter energy system," pp. 120, Dec. 2019.
-[31] "Victorian distribution network service provider (DNSP) basic micro EG connections power quality response mode settings," p. 1, Dec. 2019
-[32] P. Jahangiri and D. C. Aliprantis, "Distributed Volt/VAr control by PV inverters," IEEE Trans. Power Syst., vol. 28, no. 3, pp. 3429-3439, Aug. 2013.
-[33] J. Schoene et al., "Investigation of oscillations caused by voltage control from smart PV on a secondary system," in Proc. IEEE Power Energy Soc. Gen. Meeting, 2017, pp. 1-5
-[34] S. Chakraborty, A. Hoke, and B. Lundstrom, "Evaluation of multiple inverter volt-VAR control interactions with realistic grid impedances," in Proc. IEEE Power Energy Soc. Gen. Meeting, Denver, CO, USA, 2015, pp. $1-5$
-[35] S. Abadi, M. Mahmoodi, P. Scott, L. Blackhall, and S. Thiebaux, "Active management of LV residential networks under high PV penetration," in Proc. IEEE Milan PowerTech, Milan, Italy, Jun. 2019, pp. 1-6.
-[36] J. Swartz, B. Wais, E. Ratnam, and A. von Meier, "Visual tool for assessing stability of DER configurations on three-phase radial networks," in Proc. IEEE Madrid PowerTech, Madrid, Spain, Jun. 2021, pp. 1-6.
-[37] A. Singhal, V. Ajjarapu, J. Fuller, and J. Hansen, "Real-time local Volt/Var control under external disturbances with high PV penetration," IEEE Trans. Smart Grid, vol. 10, no. 4, pp. 3849-3859, Jul. 2019
-[38] K. Baker, A. Bernstein, E. Dall'Anese, and C. Zhao, "Network-cognizant voltage droop control for distribution grids," IEEE Trans. Power Syst., vol. 33, no. 2, pp. 2098-2108, Mar. 2018.
-[39] W. H. Kersting, "Radial distribution test feeders," in Proc. IEEE Power Eng. Soc. Winter Meeting. Conf., Columbus, OH, USA, 2001, vol. 2, pp. $908-912$
-[40] Evoenergy, "Evoenergy electricity network prices," [Online]. Available: https://www.evoenergy.com.au/residents/pricing-and-tariffs/electricitynetwork-pricing
-[41] P. A. N. Garcia, J. L. R. Pereira, S. Carneiro, V. M. da Costa, and N. Martins, "Three-phase power flow calculations using the current injection method," IEEE Trans. Power Syst., vol. 15, no. 2, pp. 508-514, May 2000.
+- [1] B. Palmintier, "On the path to sunshot: Emerging issues and challenges in integrating solar with the distribution system," Nat. Renewable Energy Lab. (NREL), Golden, CO, Tech. Rep. NREL/TP-5D00-65331, May 2016
+- [2] "Renewable integration study stage 1 appendix A: High penetrations of distributed solar PV," Australian Energy Market Operator (AEMO), Tech. Rep., Apr. 2020.
+- [3] K. Petrou et al., "Limitations of residential storage in PV-rich distribution networks: An Australian case study," in Proc. IEEE Power Energy Soc. Gen. Meeting, 2018, pp. 1-5.
+- [4] A. T. Procopiou, M. Z. Liu, W. Nacmanson, and L. Ochoa, "Advanced planning of PV-rich distribution networks - deliverable 4 Non-traditional solutions," The Univ. Melbourne, Tech. Rep., Aug. 2020
+- [5] J. W. Smith, W. Sunderman, R. Dugan, and B. Seal, "Smart inverter volt/var control functions for high penetration of PV on distribution systems," in Proc. IEEE/PES Power Syst. Conf. Expo., 2011, pp. 1-6.
+- [6] A. von Meier, E. L. Ratnam, K. Brady, K. Moffat, and J. Swartz, "Phasor based control for scalable integration of variable energy resources," Energies, vol. 13, no. 1, pp. 1-14, 2020
+- [7] I. Ranaweera, O.-M. Midtgåard, and M. Korpåas, "Distributed contro scheme for residential battery energy storage units coupled with PV systems," Renewable Energy, vol. 113, pp. 1099-1110, 2017
+- [8] S. Hashemi and J. Østergaard, "Efficient control of energy storage for increasing the PV hosting capacity of LV grids," IEEE Trans. Smart Grid, vol. 9, no. 3, pp. 2295-2303, May 2018
+- [9] M. U. Hashmi, D. Deka, A. Bušić, L. Pereira, and S. Backhaus, "Arbitrage with power factor correction using energy storage," IEEE Trans. Power Syst., vol. 35, no. 4, pp. 2693-2703, Jul. 2020
+- [10] J. von Appen, T. Stetz, M. Braun, and A. Schmiegel, "Local voltage control strategies for PV storage systems in distribution grids," IEEE Trans. Smart Grid, vol. 5, no. 2, pp. 1002-1009, Mar. 2014.
+- [11] E. L. Ratnam, S. R. Weller, and C. M. Kellett, "Central versus localized optimization-based approaches to power management in distribution networks with residential battery storage," Int. J. Electr. Power Energy Syst., vol. 80, pp. 396-406, 2016.
+- [12] W. C. de Carvalho, E. L. Ratnam, L. Blackhall, A. von Meier, and A. Murray, "Over-voltage disconnection of DER inverters: Assessing customer savings," IFAC-PapersOnLine 21st IFAC World Congr., vol. 53, no. 2, pp. 13230-13235, 2020
+- [13] E. Yao, P. Samadi, V. W. S. Wong, and R. Schober, "Residential demand side management under high penetration of rooftop photovoltaic units," IEEE Trans. Smart Grid, vol. 7, no. 3, pp. 1597-1608, May 2016.
+- [14] A. T. Procopiou, K. Petrou, L. F. Ochoa, T. Langstaff, and J. Theunissen, "Adaptive decentralized control of residential storage in PV-rich MVLV networks," IEEE Trans. Power Syst., vol. 34, no. 3, pp. 2378-2389 May 2019
+- [15] Y. Wang, K. T. Tan, X. Y. Peng, and P. L. So, "Coordinated control of distributed energy-storage systems for voltage regulation in distribution networks," IEEE Trans. Power Del., vol. 31, no. 3, pp. 1132-1141, Jun. 2016.
+- [16] M. Zeraati, M. E. Hamedani Golshan, and J. M. Guerrero, "Distributed control of battery energy storage systems for voltage regulation in distribution networks with high PV penetration," IEEE Trans. Smart Grid, vol. 9 no. 4, pp. 3582-3593, Jul. 2018
+- [17] G. Cavraro and R. Carli, "Local and distributed voltage control algorithms in distribution networks," IEEE Trans. Power Syst., vol. 33, no. 2, pp. 1420-1430, Mar. 2018.
+- [18] D. K. Molzahn et al., "A survey of distributed optimization and control algorithms for electric power systems," IEEE Trans. Smart Grid, vol. 8, no. 6, pp. 2941-2962, Nov. 2017.
+- [19] J. Joo, M. Chava, M. Sankur, D. Arnold, and E. Stewart, "Model predictive control of flexible demand for voltage support in unbalanced distribution systems," in Proc. IEEE Power Energy Soc. Gen. Meeting, Chicago, IL, USA, 2017, pp. 1-5
+- [20] K. E. Antoniadou-Plytaria, I. N. Kouveliotis-Lysikatos, P. S. Georgilakis, and N. D. Hatziargyriou, "Distributed and decentralized voltage control of smart distribution networks: Models, methods, and future research," IEEE Trans. Smart Grid, vol. 8, no. 6, pp. 2999-3008, Nov. 2017
+- [21] M. D. Sankur, R. Dobbe, E. Stewart, D. S. Callaway, and D. B. Arnold, "A linearized power flow model for optimization in unbalanced distribution systems," pp. 1-6, Jun. 2016, arXiv:1606.04492.
+- [22] M. D. Sankur, R. Dobbe, A. von Meier, E. M. Stewart, and D. B. Arnold, "Optimal voltage phasor regulation for switching actions in unbalanced distribution systems," pp. 1-11, Jun. 2019, arXiv:1804.02080.
+- [23] D. B. Arnold, M. Sankur, R. Dobbe, K. Brady, D. S. Callaway, and A. von Meier, "Optimal dispatch of reactive power for voltage regulation and balancing in unbalanced distribution systems," in Proc. IEEE Power Energy Soc. Gen. Meeting, Boston, MA, USA, 2016, pp. 1-5.
+- [24] M. Shaw, B. Sturmberg, L. Guo, X. Gao, E. Ratnam, and L. Blackhall, "The NextGen energy storage trial in the ACT, Australia," in Proc. 10th ACM Inter. Conf. Future Energy Syst., Phoenix, AZ, USA, 2019 pp. $439-442$.
+- [25] M. Baran and F. F. Wu, "Optimal sizing of capacitors placed on a radial distribution system," IEEE Trans. Power Del., vol. 4, no. 1, pp. 735-743, Jan. 1989.
+- [26] W. Lin and E. Bitar, "Decentralized stochastic control of distributed energy resources," IEEE Trans. Power Syst., vol. 33, no. 1, pp. 888-900, Jan 2018.
+- [27] E. L. Ratnam, S. R. Weller, and C. M. Kellett, "Scheduling residential battery storage with solar PV: Assessing the benefits of net metering," Appl. Energy, vol. 155, pp. 881-891, 2015.
+- [28] M.E. Baran and F.F. Wu, "Network reconfiguration in distribution systems for loss reduction and load balancing," IEEE Trans. Power Del., vol. 4 no. 2, pp. 1401-1407, Apr. 1989.
+- [29] IEEE Standard for Interconnection and Interoperability of Distributed Energy Resources with Associated Electric Power Systems Interfaces, IEEE Standard 1547-2018 (Rev. of IEEE Standard 1547-2003), pp. 1-138, Apr. 2018, doi: 10.1109/IEEESTD.2018.8332112.
+- [30] AusNet Services, "Model standing offer for basic connection services: Basic micro Embedded Generation (EG) - inverter energy system," pp. 120, Dec. 2019.
+- [31] "Victorian distribution network service provider (DNSP) basic micro EG connections power quality response mode settings," p. 1, Dec. 2019
+- [32] P. Jahangiri and D. C. Aliprantis, "Distributed Volt/VAr control by PV inverters," IEEE Trans. Power Syst., vol. 28, no. 3, pp. 3429-3439, Aug. 2013.
+- [33] J. Schoene et al., "Investigation of oscillations caused by voltage control from smart PV on a secondary system," in Proc. IEEE Power Energy Soc. Gen. Meeting, 2017, pp. 1-5
+- [34] S. Chakraborty, A. Hoke, and B. Lundstrom, "Evaluation of multiple inverter volt-VAR control interactions with realistic grid impedances," in Proc. IEEE Power Energy Soc. Gen. Meeting, Denver, CO, USA, 2015, pp. $1-5$
+- [35] S. Abadi, M. Mahmoodi, P. Scott, L. Blackhall, and S. Thiebaux, "Active management of LV residential networks under high PV penetration," in Proc. IEEE Milan PowerTech, Milan, Italy, Jun. 2019, pp. 1-6.
+- [36] J. Swartz, B. Wais, E. Ratnam, and A. von Meier, "Visual tool for assessing stability of DER configurations on three-phase radial networks," in Proc. IEEE Madrid PowerTech, Madrid, Spain, Jun. 2021, pp. 1-6.
+- [37] A. Singhal, V. Ajjarapu, J. Fuller, and J. Hansen, "Real-time local Volt/Var control under external disturbances with high PV penetration," IEEE Trans. Smart Grid, vol. 10, no. 4, pp. 3849-3859, Jul. 2019
+- [38] K. Baker, A. Bernstein, E. Dall'Anese, and C. Zhao, "Network-cognizant voltage droop control for distribution grids," IEEE Trans. Power Syst., vol. 33, no. 2, pp. 2098-2108, Mar. 2018.
+- [39] W. H. Kersting, "Radial distribution test feeders," in Proc. IEEE Power Eng. Soc. Winter Meeting. Conf., Columbus, OH, USA, 2001, vol. 2, pp. $908-912$
+- [40] Evoenergy, "Evoenergy electricity network prices," [Online]. Available: https://www.evoenergy.com.au/residents/pricing-and-tariffs/electricitynetwork-pricing
+- [41] P. A. N. Garcia, J. L. R. Pereira, S. Carneiro, V. M. da Costa, and N. Martins, "Three-phase power flow calculations using the current injection method," IEEE Trans. Power Syst., vol. 15, no. 2, pp. 508-514, May 2000.
 
 
 [^0]:    Manuscript received 9 June 2021; revised 20 October 2021 and 14 February 2022; accepted 26 March 2022. Date of publication 29 March 2022; date of current version 22 December 2022. Paper no. TPWRS-00920-2021. (Corresponding author: Wilhiam C. de Carvalho.)
 
-    Wilhiam C. de Carvalho, Elizabeth L. Ratnam, and Lachlan Blackhall are with the College of Engineering and Computer Science, Australian National University, Canberra, ACT 2601, Australia (e-mail: wilhiam.decarvalho@anu.edu.au elizabeth.ratnam@anu.edu.au; lachlan.blackhall@anu.edu.au)
+Wilhiam C. de Carvalho, Elizabeth L. Ratnam, and Lachlan Blackhall are with the College of Engineering and Computer Science, Australian National University, Canberra, ACT 2601, Australia (e-mail: wilhiam.decarvalho@anu.edu.au elizabeth.ratnam@anu.edu.au; lachlan.blackhall@anu.edu.au)
 
-    Alexandra von Meier is with the Electrical Engineering and Computer Sci ence Department, University of California, Berkeley, CA 94720 USA (e-mail vonmeier@berkeley.edu).
+Alexandra von Meier is with the Electrical Engineering and Computer Sci ence Department, University of California, Berkeley, CA 94720 USA (e-mail vonmeier@berkeley.edu).
 
-    Color versions of one or more figures in this article are available at https://doi.org/10.1109/TPWRS.2022.3163371.
+Color versions of one or more figures in this article are available at https://doi.org/10.1109/TPWRS.2022.3163371.
 
-    Digital Object Identifier 10.1109/TPWRS.2022.3163371
-
+Digital Object Identifier 10.1109/TPWRS.2022.3163371
