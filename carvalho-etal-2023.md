@@ -5,9 +5,12 @@ title: "Optimization-Based Operation of Distribution Grids With Residential Batt
 
 # Optimization-Based Operation of Distribution Grids With Residential Battery Storage: Assessing Utility and Customer Benefits 
 
-Wilhiam C. de Carvalho , Elizabeth L. Ratnam, Senior Member, IEEE,<br>Lachlan Blackhall, Senior Member, IEEE, and Alexandra von Meier, Senior Member, IEEE
+- Wilhiam C. de Carvalho ,
+- Elizabeth L. Ratnam, Senior Member, IEEE,
+- Lachlan Blackhall, Senior Member, IEEE, and
+- Alexandra von Meier, Senior Member, IEEE
 
-#### Abstract
+## Abstract
 
 Increasing levels of distributed solar photovoltaic (PV) generation has created significant technical challenges in distribution networks, particularly regarding voltage regulation. **Small-scale behind-the-meter battery storage is a key element** in effectively overcoming such challenges, while offering financial benefits for customers. In this paper, **we propose an optimization-based approach for dispatching power from residential-scale battery storage for grid support and customer savings**, considering only local (behind-the-meter) measurements. The proposed approach takes into account the physics of the grid and both real and reactive power (coupled) for voltage regulation and grid loss reduction. The optimization-based approach, termed **Local-Quadratic Program (L-QP)**, is formulated based on the linear power flow equations (**LinDistFlow**). The proposed L-QP is benchmarked against an approach in which real power is used to maximize the customer benefit, while reactive power is dedicated for voltage regulation. Numerical simulations with the IEEE 13 and IEEE 123 Node Test Feeders, which include realistic time-varying data for residential load and PV generation, demonstrate the technical advantages of the proposed approach.
 
@@ -15,50 +18,131 @@ Index Terms-Battery storage, distribution network, grid power losses, solar phot
 
 ## Introduction
 
-The dramatic increase of solar photovoltaic (PV) penetration in recent years has caused significant challenges for distribution network operators. High rooftop PV generation combined with low power demand can result in reverse power flow along line segments and an unacceptably high grid voltage. Significant voltage rise can limit customer-owned solar PV generation and, in turn, potentially reduces financial saving that a PV customer accrues [1]. Among different measures to mitigate voltage issues posed by distributed PV, including
+The dramatic increase of solar photovoltaic (PV) penetration in recent years has caused significant challenges for distribution network operators. High rooftop PV generation combined with low power demand can result in reverse power flow along line segments and an unacceptably high grid voltage. Significant voltage rise can limit customer-owned solar PV generation and, in turn, potentially reduces financial saving that a PV customer accrues [1]. Among different measures to mitigate voltage issues posed by distributed PV, including [^0] grid reinforcement or the installation of on-load tap changing transformers, are increasingly affordable battery storage solutions. Residential-scale battery storage that charges when solar generation is in excess, potentially reduces grid over-voltage conditions at the source of the problem [2].
 
-[^0]grid reinforcement or the installation of on-load tap changing transformers, are increasingly affordable battery storage solutions. Residential-scale battery storage that charges when solar generation is in excess, potentially reduces grid over-voltage conditions at the source of the problem [2].
+> [!important]
+> Approaches to charge and discharge residential-scale battery storage are typically designed to provide financial benefits to the battery owner [3]. However, the overwhelming majority of economic-based methods do not consider the local impact on the grid voltage [4].
 
-Approaches to charge and discharge residential-scale battery storage are typically designed to provide financial benefits to the battery owner [3]. However, the overwhelming majority of economic-based methods do not consider the local impact on the grid voltage [4]. Alternatively, to improve distribution grid voltages, it is possible to inject/absorb inverter-based reactive power from residential battery systems [5]. However, using reactive power alone can lead to unsatisfactory voltage regulation with excessive power losses in the distribution network [6]. Decoupling real power for customer economic-benefit and reactive power for voltage regulation, while sensible in transmission networks, has fundamental limitations in distribution grids [6]. Specifically, the higher resistance over reactance ( $\mathrm{R} / \mathrm{X}$ ) ratio of lines in the distribution grid couples both real and reactive power flows to over-voltage or under-voltage conditions, limiting the long-term applicability of the aforementioned decoupled approaches [6].
+Alternatively, to improve distribution grid voltages, **it is possible to inject/absorb inverter-based reactive power from residential battery systems [5]**. However, using reactive power alone can lead to unsatisfactory voltage regulation with excessive power losses in the distribution network [6].
 
-Several papers in the literature have proposed new approaches for dispatching real and reactive power of residential battery systems for both grid and customer benefit. An optimization-based approach is proposed in [7] to use real power from the battery for customer financial benefit, while promoting charging during the peak PV generation period. Nevertheless, when the grid voltage exceeds a threshold, both real and reactive power from the residential battery system are dispatched to drive the grid voltage closer to the nominal voltage. In [8] the reactive power is constantly dispatched for voltage regulation, while real power from the battery system is reserved for correcting voltage excursions beyond a nominal threshold. The authors in [9] propose a method to dispatch real power from the battery to maximize customer financial savings, while reactive power is reserved for power factor correction of the residential system. A variety of rule-based approaches for real and reactive power dispatch have been proposed and compared in [10] to provide customer benefit and grid voltage regulation services.
+> Decoupling real power for customer economic-benefit and reactive power for voltage regulation, while sensible in transmission networks, has fundamental limitations in distribution grids [6]. Specifically, the higher resistance over reactance ( $\mathrm{R} / \mathrm{X}$ ) ratio of lines in the distribution grid couples both real and reactive power flows to over-voltage or under-voltage conditions, limiting the long-term applicability of the aforementioned decoupled approaches [6].
 
-Due to the limited efficacy of reactive power for voltage regulation in distribution networks, other studies [11]-[16] have focused only on dispatching real power, i.e. charging/discharging
-battery storage. Several behind-the-meter optimization-based approaches have been proposed in [11], [12] to reduce real power imports/exports from/to the grid while considering customer savings. The authors in [13], [14] propose to use the real power of the battery to improve grid voltages alongside customer benefit. However, in [13] the proposed optimization-based approach includes an additional cost when real power exports exceeds a threshold, whereas in [14] a time-based approach is proposed to prevent overvoltage by charging the battery proportional to the amount of PV generation. Moreover, in [15], [16] real power is dispatched for grid voltage regulation, disregarding the benefits provided for the battery owner.
+> [!note]
+> Esse ponto em que a autora do trabalho faz uma comparação entre as diferenças nos efeitos das variações de potência ativa e reativa na rede elétrica dos sistemas de transmissão e distribuição é muito importante de ser compreendido, sendo necessário inclusive uma investigação mais profunda sobre o tema, tando na literatura, geral e indicada pela autora, quanto no desenvolvimento de demonstrações práticas por meio de experimentos computacionais.
 
-Although reactive power for voltage regulation in the distribution grid is not as effective as in the transmission network, it can still contribute to improve grid voltages and reduce grid power losses. Ultimately, it is the grid impedance characteristic that determines how effective real and reactive power is to regulate grid voltage and the impact on grid power losses. It follows that the authors in [17]-[23] have proposed centralized and distributed approaches to dispatch real and reactive power from residential energy systems, which incorporate network models that capture the relationship of grid impedance to grid voltages and power losses. However, a key challenge that exists is to capture such a relationship with a formulation that considers only local (behind-the-meter) measurements, which are fast-acting to system variability, robust to communication failures, and privacy preserving [20]. This motivates us to consider more directly the impedance characteristic of the electrical network in the formulation of a local optimization-based approach to dispatch real and reactive power from a residential energy system, that improves supply voltages and reduces power losses throughout the electrical network.
+Several papers in the literature have proposed new approaches for dispatching real and reactive power of residential battery systems for both grid and customer benefit. An optimization-based approach is proposed in [7] to use **real power from the battery for customer financial benefit**, while promoting charging during the peak PV generation period. Nevertheless, when the grid voltage exceeds a threshold, **both real and reactive power from the residential battery system are dispatched** to drive the grid voltage closer to the nominal voltage. In [8] the **reactive power is constantly dispatched for voltage regulation**, while **real power from the battery system is reserved for correcting voltage excursions beyond a nominal threshold**. The authors in [9] propose a method to **dispatch real power from the battery** to maximize customer financial savings, while **reactive power is reserved for power factor correction** of the residential system. A variety of **rule-based approaches for real and reactive power dispatch have been proposed and compared in [10]** to provide customer benefit and grid voltage regulation services.
 
-In this paper, we propose a local optimization-based approach for dispatching real and reactive power of behind-themeter residential-scale battery storage. The optimization problem incorporates both real and reactive power (coupled) for both grid voltage regulation and grid power loss reduction. The formulation is based on the impedance characteristics of the network, which fundamentally dictates the relation of real and reactive power with grid voltages. Specifically, the proposed optimization-based approach, labelled Local-Quadratic Program (L-QP), incorporates a linearized model of the distribution grid power flow equations (i.e., LinDistFlow) together with behind-the-meter (local) voltage and power flow measurements. Our objective is to increase the customer financial benefits for operating residential battery storage, while improving grid voltages and power losses.
-The contributions of this paper are: (i) the derivation of an equation with both real and reactive power coupled for voltage regulation considering only behind-the-meter variables; (ii) the derivation of mathematical terms to express grid resistive power losses using only behind-the-meter variables; and (iii) the formulation of a local optimization-based approach for behindthe-meter battery storage operation that seeks to minimize grid voltage deviations, grid resistive losses and customer electricity billing costs. Importantly, the derivation of (i) and (ii) culminate in the proposed local optimization-based approach (iii). It is
+> [!important]
+> Due to **the limited efficacy of reactive power for voltage regulation in distribution networks**, other studies [11]-[16] have focused only on dispatching real power, i.e. charging/discharging battery storage.
+
+Several behind-the-meter optimization-based approaches have been proposed in [11], [12] to **reduce real power imports/exports from/to the grid** while considering customer savings. The authors in [13], [14] propose to **use the real power of the battery to improve grid voltages** alongside customer benefit. However, in [13] the proposed optimization-based approach includes an additional cost when real power exports exceeds a threshold, whereas in [14] a time-based approach is proposed to prevent overvoltage by charging the battery proportional to the amount of PV generation. Moreover, in [15], [16] **real power is dispatched for grid voltage regulation, disregarding the benefits provided for the battery owner**.
+
+> [!important]
+> Although reactive power for voltage regulation in the distribution grid is not as effective as in the transmission network, it can still contribute to improve grid voltages and reduce grid power losses. Ultimately, **it is the grid impedance characteristic that determines how effective real and reactive power is to regulate grid voltage** and the impact on grid power losses.
+
+It follows that the authors in [17]-[23] have proposed **centralized and distributed approaches to dispatch real and reactive power from residential energy systems**, which incorporate network models that capture the relationship of grid impedance to grid voltages and power losses.
+
+However, a key challenge that exists is:
+
+> [!important]
+> To capture such a relationship with a formulation that considers **only local (behind-the-meter) measurements**, which are:
+>
+> - fast-acting to system variability,
+> - robust to communication failures, and
+> - privacy preserving [20].
+
+> [!note]
+> Essa é a motivação explícita do trabalho:
+> 
+> This motivates us to consider more directly the impedance characteristic of the electrical network in the formulation of a *local optimization-based approach to dispatch real and reactive power from a residential energy system, that improves supply voltages and reduces power losses throughout the electrical network*.
+
+In this paper, we propose: **a local optimization-based approach for dispatching real and reactive power of behind-themeter residential-scale battery storage**.
+
+The optimization problem incorporates both real and reactive power (coupled) for both grid voltage regulation and grid power loss reduction.
+
+The formulation is based on the impedance characteristics of the network, which fundamentally dictates the relation of real and reactive power with grid voltages.
+
+Specifically, the proposed optimization-based approach, labelled **Local-Quadratic Program (L-QP), incorporates a linearized model of the distribution grid power flow equations (i.e., LinDistFlow) together with behind-the-meter (local) voltage and power flow measurements**.
+
+Our objective is **to increase the customer financial benefits for operating residential battery storage, while improving grid voltages and power losses**.
+
+The contributions of this paper are:
+
+- (i) the derivation of an equation with both real and reactive power coupled for **voltage regulation** considering only behind-the-meter variables;
+- (ii) the derivation of mathematical terms to express **grid resistive power losses** using only behind-the-meter variables; and
+- (iii) the formulation of a local optimization-based approach for behindthe-meter battery storage operation that seeks to **minimize grid voltage deviations, grid resistive losses and customer electricity billing costs**.
+
+Importantly, the derivation of (i) and (ii) culminate in the proposed local optimization-based approach (iii). 
+
+> [!important]
+> It is worth mentioning that (i) and (ii) can underpin other applications, including the design of new tariff structures for individual customers.
+
+This paper focuses on deriving and incorporating the networkcognizant equations in a local (fully decentralized) optimizationbased approach and investigating their effectiveness when adverse interactions between inverters do not impact overall performance.
+
+We benchmark our proposed L-QP algorithm against an alternative approach that also ingresses local measurements, however, separates real power for maximizing customer savings and reactive power for voltage regulation. Numerical simulations are carried out with challenging distribution test feeders and with actual time-varying data for residential load and PV generation [24].
+
+This paper is organized as follows:
+
+- The LinDistFlow equations together with the residential system are introduced in Section II.
+- We derive grid voltage and resistive loss equations, and formulate the L-QP approach in Section III.
+- Numerical simulations follow in Section IV.
+
+## Preliminaries
+
+We consider a single-phase radial distribution network modelled as a connected graph as in Fig. 1. 
+
+The set of nodes is denoted by $\mathcal{N}_{o}=\{0,1, \ldots, N\}$, where 0 is the source node, also referred as slack node or substation bus, and $N$ is the total number of nodes downstream of node 0 (i.e. $\left|\mathcal{N}_{o}\right|=N+1$ ). The set of edges is denoted by $\mathcal{E} \subseteq \mathcal{N}_{o} \times \mathcal{N}_{o}$, where edge $(m, n) \in \mathcal{E}$ represents a line segment from node $m$ to node $n$. The distribution network can then be represented by the graph $\mathcal{G}=\left(\mathcal{N}_{o}, \mathcal{E}\right)$. We often refer to the set of nodes downstream of node 0, denoted by $\mathcal{N}=\mathcal{N}_{o} \backslash\{0\}$.
 
 ![](https://cdn.mathpix.com/cropped/2024_08_27_654167e472f5bf5a26b5g-02.jpg?height=211&width=721&top_left_y=217&top_left_x=1114)
 
 Fig. 1. Distribution network modelled as a connected graph. Node 0 is the source node, also referred as slack or substation bus, and $l, m, n$ are indices used to represent nodes and line segments.
-worth mentioning that (i) and (ii) can underpin other applications, including the design of new tariff structures for individual customers.
 
-This paper focuses on deriving and incorporating the networkcognizant equations in a local (fully decentralized) optimizationbased approach and investigating their effectiveness when adverse interactions between inverters do not impact overall performance. We benchmark our proposed L-QP algorithm against an alternative approach that also ingresses local measurements, however, separates real power for maximizing customer savings and reactive power for voltage regulation. Numerical simulations are carried out with challenging distribution test feeders and with actual time-varying data for residential load and PV generation [24].
+In Fig. 2 we present our distribution network and residential system notation.
 
-This paper is organized as follows. The LinDistFlow equations together with the residential system are introduced in Section II. We derive grid voltage and resistive loss equations, and formulate the L-QP approach in Section III. Numerical simulations follow in Section IV.
+Line segments represent the low-voltage (LV) distribution network, and it is straightforward to extend the notation to represent line segments in the medium-voltage (MV) network. 
 
-## PreLiMINARIES
+Specifically, we consider a set of customers $\mathcal{C}_{m}=$ $\left\{1, \ldots, c, \ldots, C_{m}\right\}$ connected to each node $m \in \mathcal{N}$. The voltage magnitude at node $m$ is denoted by $V_{m}$ and the impedance of the edge $(m, n) \in \mathcal{E}$ is represented by $r_{m n}+j x_{m n}$, where $r_{m n}$ is the resistance and $x_{m n}$ is the reactance of the line segment.
 
-We consider a single-phase radial distribution network modelled as a connected graph as in Fig. 1. The set of nodes is denoted by $\mathcal{N}_{o}=\{0,1, \ldots, N\}$, where 0 is the source node, also referred as slack node or substation bus, and $N$ is the total number of nodes downstream of node 0 (i.e. $\left|\mathcal{N}_{o}\right|=N+1$ ). The set of edges is denoted by $\mathcal{E} \subseteq \mathcal{N}_{o} \times \mathcal{N}_{o}$, where edge $(m, n) \in \mathcal{E}$ represents a line segment from node $m$ to node $n$. The distribution network can then be represented by the graph $\mathcal{G}=\left(\mathcal{N}_{o}, \mathcal{E}\right)$. We often refer to the set of nodes downstream of node 0 , denoted by $\mathcal{N}=\mathcal{N}_{o} \backslash\{0\}$.
+Variable $P_{m n}$ is the real power and $Q_{m n}$ is the reactive power flow in the edge $(m, n)$.
 
-In Fig. 2 we present our distribution network and residential system notation. Line segments represent the low-voltage (LV) distribution network, and it is straightforward to extend the notation to represent line segments in the medium-voltage (MV) network. Specifically, we consider a set of customers $\mathcal{C}_{m}=$ $\left\{1, \ldots, c, \ldots, C_{m}\right\}$ connected to each node $m \in \mathcal{N}$. The voltage magnitude at node $m$ is denoted by $V_{m}$ and the impedance of the edge $(m, n) \in \mathcal{E}$ is represented by $r_{m n}+j x_{m n}$, where $r_{m n}$ is the resistance and $x_{m n}$ is the reactance of the line segment. Variable $P_{m n}$ is the real power and $Q_{m n}$ is the reactive power flow in the edge $(m, n)$. Whereas $P_{m}$ and $Q_{m}$ is the aggregate real and reactive power consumption, respectively, at node $m$, consistent with the positive load convention. For a customer $c$ connected to node $m, p_{m}^{c}$ denotes the real power and $q_{m}^{c}$ denotes the reactive power consumption, with positive load convention.
+Whereas $P_{m}$ and $Q_{m}$ is the aggregate real and reactive power consumption, respectively, at node $m$, **consistent with the positive load convention**.
+
+> For a customer $c$ connected to node $m$, $p_{m}^{c}$ denotes the real power and $q_{m}^{c}$ denotes the reactive power consumption, **with positive load convention**.
 
 ![](https://cdn.mathpix.com/cropped/2024_08_27_654167e472f5bf5a26b5g-03.jpg?height=769&width=863&top_left_y=217&top_left_x=149)
 
-Fig. 2. Distribution network serving residential systems. Arrows indicate the positive direction of power flow. Zoom A depicts the disaggregation of load $P_{m}, Q_{m}$, consisting of the load drawn by each customer in the set $\left\{1, \ldots, c, \ldots, C_{m}\right\}$, e.g., customer $c$ draws load $p_{m}^{c}, q_{m}^{c}$. Zoom B depicts a residential system for customer $c$ connected to node $m$. All customers prescribe to a time-of-use (TOU) pricing tariff with the net-metering policy.
+Fig. 2. Distribution network serving residential systems. Arrows indicate the positive direction of power flow. Zoom A depicts the disaggregation of load $P_{m}, Q_{m}$, consisting of the load drawn by each customer in the set $\left\{1, \ldots, c, \ldots, C_{m}\right\}$, e.g., customer $c$ draws load $p_{m}^{c}, q_{m}^{c}$. Zoom B depicts a residential system for customer $c$ connected to node $m$.
 
-The relationship of aggregate power consumption to customer power consumption is given by
+> All customers prescribe to a time-of-use (TOU) pricing tariff with the net-metering policy.
+
+> [!note]
+> Essas definições são importantes para o entendimento dos cálculos que serão realizados em seguida. É importante compreender que, de acordo com a modelagem realizada pela autora, conectados ao nó m existem m consumidores, cada um com possibilidade de possuir um sistema com geração solar, bateria e carga.
+> Outro dado importante que foi mencionado pelos autores é que o esquema tarifário é TOU combinado com política de net-metering, ou seja, existe uma tarifa de energia elétrica variável no tempo e o consumidor é cobrado/remunerado de acordo com a variação no seu consumo/produção.
+
+The relationship of aggregate power consumption to customer power consumption is given by:
 
 $$
 P_{m}=\sum_{c \in \mathcal{C}_{m}} p_{m}^{c}, \quad Q_{m}=\sum_{c \in \mathcal{C}_{m}} q_{m}^{c}
 $$
 
-for all $m \in \mathcal{N}$. Throughout, $V_{m}^{2}$ is referred to as voltage magnitude squared. Further, we refer to the deviation of the voltage magnitude squared relative to node 0 , denoted by $E_{m}=$ $V_{0}^{2}-V_{m}^{2}$, by simply voltage deviation. Note that a positive voltage deviation $\left(E_{m}>0\right)$ represents a voltage drop between the nodes, whilst a negative voltage deviation $\left(E_{m}<0\right)$ represents voltage rise between the nodes.
+for all $m \in \mathcal{N}$. 
 
-Next we consider the linear power flow equations developed in [25] for distribution networks. Specifically, we are motivated to consider the LinDistFlow equations as they support the development of convex optimization problem formulations. The LinDistFlow equations assume negligible power losses in line segments, yet are able to model power networks with satisfactory accuracy as reported in [21]-[23], [26]. A single-phase representation of the LinDistFlow equations is expressed by
+Throughout, $V_{m}^{2}$ is referred to as voltage magnitude squared.
+
+> [!important] Definição Importante
+> Further, we refer to the **deviation of the voltage magnitude squared relative to node 0**, denoted by:
+>
+> $E_{m}=$ $V_{0}^{2}-V_{m}^{2}$ by simply voltage deviation. 
+>
+> Note that: **a positive voltage deviation $\left(E_{m}>0\right)$ represents a voltage drop between the nodes, whilst a negative voltage deviation $\left(E_{m}<0\right)$ represents voltage rise between the nodes**.
+
+Next we consider the **linear power flow equations** developed in [25] for distribution networks. 
+
+> Specifically, we are motivated to consider the *LinDistFlow* equations as **they support the development of convex optimization problem formulations**.
+
+The *LinDistFlow* equations assume negligible power losses in line segments, yet are able to model power networks with satisfactory accuracy as reported in [21]-[23], [26]. 
+
+A single-phase representation of the *LinDistFlow* equations is expressed by:
 
 $$
 \begin{array}{r}
@@ -68,27 +152,38 @@ V_{m}^{2}=V_{n}^{2}+2 r_{m n} P_{m n}+2 x_{m n} Q_{m n}, \quad \forall(m, n) \in
 \end{array}
 $$
 
-As in [25], [26], we define a path $\mathcal{L}_{m} \subseteq \mathcal{E}$ as the set of edges (or otherwise line segments) on the unique path from node 0 to node $m$. We also define matrices $\boldsymbol{R}, \boldsymbol{X} \in \mathbb{R}^{\mathrm{N} \times \mathrm{N}}$, such that elements in the matrices can be computed as:
+As in [25], [26], **we define a path $\mathcal{L}_{m} \subseteq \mathcal{E}$ as the set of edges (or otherwise line segments) on the unique path from node 0 to node $m$**. We also define matrices $\boldsymbol{R}, \boldsymbol{X} \in \mathbb{R}^{\mathrm{N} \times \mathrm{N}}$, such that elements in the matrices can be computed as:
 
 $$
 R_{h k}=\sum_{(m, n) \in \mathcal{L}_{h} \cap \mathcal{L}_{k}} r_{m n}, \quad X_{h k}=\sum_{(m, n) \in \mathcal{L}_{h} \cap \mathcal{L}_{k}} x_{m n}
 $$
 
-where $h, k \in \mathcal{N}$ represent the row and column index, respectively, of the matrices. Conceptually, the elements in the matrices $\boldsymbol{R}, \boldsymbol{X}$ represent the total resistance and reactance, respectively, of the path that is common for both nodes $h$ and $k$. Importantly, when $h=k, R_{h h}$ is the summation of the resistance of each line segment along the unique path from node 0 to node $h$. Likewise, $X_{h h}$ is the summation of the reactance of each line segment along the unique path from node 0 to node $h$.
+where $h, k \in \mathcal{N}$ represent the row and column index, respectively, of the matrices.
 
-The LinDistFlow equations are then written in compact form [26] as follows
+> Conceptually, the elements in the matrices $\boldsymbol{R}, \boldsymbol{X}$ represent the total resistance and reactance, respectively, of the path that is common for both nodes $h$ and $k$.
 
-$$
-\boldsymbol{E}=2 \boldsymbol{R} \boldsymbol{P}+2 \boldsymbol{X} \boldsymbol{Q}
-$$
+Importantly, when $h=k, R_{h h}$ is the summation of the resistance of each line segment along the unique path from node 0 to node $h$. Likewise, $X_{h h}$ is the summation of the reactance of each line segment along the unique path from node 0 to node $h$.
 
-where $\quad \boldsymbol{E}=\left[E_{1}, \ldots, E_{N}\right]^{\top}, \quad \boldsymbol{P}=\left[P_{1}, \ldots, P_{N}\right]^{\top}, \quad \boldsymbol{Q}=$ $\left[Q_{1}, \ldots, Q_{N}\right]^{\top}$. Note that all elements in $\boldsymbol{E}$ are voltage squared deviations relative to node 0 (e.g. $E_{N}=V_{0}^{2}-V_{N}^{2}$ ). It is worth mentioning that (6) is formulated with nodal aggregate power, instead of line power flows as in (4).
+> [!important]
+> The LinDistFlow equations are then written in compact form [26] as follows:
+>
+> $$
+> \boldsymbol{E} = 2 \boldsymbol{R} \boldsymbol{P} + 2 \boldsymbol{X} \boldsymbol{Q}
+> $$
+>
+> Where $\quad \boldsymbol{E}=\left[E_{1}, \ldots, E_{N}\right]^{\top}, \quad \boldsymbol{P}=\left[P_{1}, \ldots, P_{N}\right]^{\top}, \quad \boldsymbol{Q}=$ $\left[Q_{1}, \ldots, Q_{N}\right]^{\top}$.
+>
+> Note that all elements in $\boldsymbol{E}$ are voltage squared deviations relative to node 0 (e.g. $E_{N}=V_{0}^{2}-V_{N}^{2}$ ).
+> It is worth mentioning that (6) is formulated with nodal aggregate power, instead of line power flows as in (4).
+
+> [!note] Nota de Implementação
+> Nesse ponto é importante firmar que se faz necessário a implementação da obtenção das matrizes $\mathbf{R}, \mathbf{X}, \mathbf{P}, \mathbf{Q}$, para que a matriz $\mathbf{E}$ também possa ser obtida. Isso será realizado no pluto notebook presente nesse repositório.
 
 ## A. Residential System
 
 Fig. 2 depicts a residential system connected to node $m$ for a customer $c \in \mathcal{C}_{m}$. The residential system includes a load, solar PV, and battery storage. The battery storage represents a dispatchable resource, whereas load and PV generation are considered uncontrollable resources. Although PV inverters are usually able to dispatch reactive power, in this study, for simplicity, the dispatchable reactive power $\left(v_{m}^{c}\right)$ is provided by the battery inverter only. We introduce a set denoted by $\mathcal{K}=\{1, \ldots, k, \ldots, K\}$, where $k$ denotes a time index and $K$ is the total number of time indices. We denote by $\Delta$ the length of one time interval (i.e., $((k-1) \Delta, k \Delta)$ ), and we define a time horizon $T=K \Delta$, where $[0, T]$ is a time window.
 
-In Fig. 2, $p_{m}^{c}(k), d_{m}^{c}(k), g_{m}^{c}(k)$ and $u_{m}^{c}(k)$ represent average real power flows (in kW ) across time interval $((k-1) \Delta, k \Delta$ ). Similarly, $q_{m}^{c}(k), e_{m}^{c}(k)$ and $v_{m}^{c}(k)$ denote average reactive power flows (in kvar) across time interval $((k-1) \Delta, k \Delta)$. The real and reactive power consumed by the entire residential system is represented by $p_{m}^{c}(k)$ and $q_{m}^{c}(k)$, respectively. The power flows from the grid to the residence are positive, whereas power flows from the residence exported to the grid are negative. We represent real and reactive residential load by $d_{m}^{c}(k), e_{m}^{c}(k) \in \mathbb{R}_{\geq 0}, \forall k \in \mathcal{K}$, respectively, and $g_{m}^{c}(k) \in \mathbb{R}_{\leq 0}$, $\forall k \in \mathcal{K}$, represents the solar PV real power. The real and reactive battery power is denoted by $u_{m}^{c}(k)$ and $v_{m}^{c}(k)$, respectively, where positive power flows represent the battery absorbing power and negative power flows represent the battery generating power. The real and reactive power balance equations for the residential system, corresponding to Fig. 2, are:
+In Fig. 2, $p_{m}^{c}(k), d_{m}^{c}(k), g_{m}^{c}(k)$ and $u_{m}^{c}(k)$ represent average real power flows (in kW ) across time interval $((k-1) \Delta, k \Delta$. Similarly, $q_{m}^{c}(k), e_{m}^{c}(k)$ and $v_{m}^{c}(k)$ denote average reactive power flows (in kvar) across time interval $((k-1) \Delta, k \Delta)$. The real and reactive power consumed by the entire residential system is represented by $p_{m}^{c}(k)$ and $q_{m}^{c}(k)$, respectively. The power flows from the grid to the residence are positive, whereas power flows from the residence exported to the grid are negative. We represent real and reactive residential load by $d_{m}^{c}(k), e_{m}^{c}(k) \in \mathbb{R}_{\geq 0}, \forall k \in \mathcal{K}$, respectively, and $g_{m}^{c}(k) \in \mathbb{R}_{\leq 0}$, $\forall k \in \mathcal{K}$, represents the solar PV real power. The real and reactive battery power is denoted by $u_{m}^{c}(k)$ and $v_{m}^{c}(k)$, respectively, where positive power flows represent the battery absorbing power and negative power flows represent the battery generating power. The real and reactive power balance equations for the residential system, corresponding to Fig. 2, are:
 
 $$
 \begin{array}{r}

@@ -1,6 +1,6 @@
 # carvalho-2023-results
 
-Respositório contendo a tentativa de reprodução dos resultados obtidos em (Carvalho, W. C, et.al, 2023) usando código em Julia.
+Repositório contendo a tentativa de reprodução dos resultados obtidos em (Carvalho, W. C, et.al, 2023) usando código em Julia.
 
 ## Título do Artigo: Optimization-Based Operation of Distribution Grids With Residential Battery Storage: Assessing Utility and Customer Benefits
 
